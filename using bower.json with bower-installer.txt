@@ -9,7 +9,7 @@
     "path" : "some/path",
     "sources" : {
       "requirejs" : "components/requirejs/require.js",
-      "bootstrap"  : "components/bootstrap/collapse.js"
+      "bootstrap" : "components/bootstrap/collapse.js"
     }
   }
 }
