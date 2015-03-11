@@ -25,7 +25,7 @@ bower install //install bower dependencies
 - ***.abignore*** - Exclude Additional Files From Your Application Package (for AppBuilder project)
 - ***.gitignore*** - specifies which files/folder should be ignore when doing git commits
 - ***.gitattributes*** -  gives attributes to pathnames [detais](http://git-scm.com/docs/gitattributes)
-- ***.tfignore*** - specifies which files/folder should be ignored when doing commits for Team Foundation
+- ***.tfignore*** - specifies which files/folder should be ignored when doing commits for Team Foundation [details](https://github.com/sirkirby/tfignore)
 - ***.npmignore*** -  file to keep stuff out of your package
 - ***.editorconfig*** - Define and maintain consistent coding styles between different editors and IDEs.
 - ***.jscs.json*** -  JS code style checker, used for enforcing coding style only using defined set of rules,  
