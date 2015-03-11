@@ -2,13 +2,14 @@
   "name" : "test",
   "version": "1.0",
   "dependencies" : {
-    "backbone" : "latest",
+    "bootstrap" : "latest",
     "requirejs" : "latest"
   },
   "install" : {
     "path" : "some/path",
     "sources" : {
-      "requirejs" : "components/requirejs/require.js"
+      "requirejs" : "components/requirejs/require.js",
+      "bootstrap"  : "components/bootstrap/collapse.js"
     }
   }
 }
