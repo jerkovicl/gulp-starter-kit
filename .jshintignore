@@ -1,0 +1,1 @@
+**/**.min.js    //will recursively look for any .min.js files below your working directory.

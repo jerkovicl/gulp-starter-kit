@@ -1,0 +1,14 @@
+{
+  "name" : "test",
+  "version": "1.0",
+  "dependencies" : {
+    "backbone" : "latest",
+    "requirejs" : "latest"
+  },
+  "install" : {
+    "path" : "some/path",
+    "sources" : {
+      "requirejs" : "components/requirejs/require.js"
+    }
+  }
+}

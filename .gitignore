@@ -1,0 +1,104 @@
+# https://github.com/github/gitignore/blob/master/VisualStudio.gitignore #
+
+# Ignore Visual Studio  Project and User files #
+##############################
+bin
+obj
+*.user
+*.gpState
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.user-settings.xml
+/packages
+**/App_Resources
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+
+
+# NuGet Packages #
+###############
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
+
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+Desktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Ignore Node & Bower
+###################
+node_modules
+bower_components
+build
+npm-debug.log
+#.tmp
+
+# Ignore AppBuilder stuff #
+dist/
+test/
+*/.ab/
+*.apk
+*.ipa
+*.xap
+
+# Ignore Test reporters
+###################
+**/test/coverage
+report
+
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.xap
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+# *.sdf
+*.mdf
+*.ldf
+
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+
+# JustCode is a .NET coding addin-in
+.JustCode
+
+# Visual Studo 2015 cache/options directory
+.vs/
+
+

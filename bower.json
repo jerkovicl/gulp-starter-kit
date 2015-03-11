@@ -1,0 +1,31 @@
+{
+  "name": "Starter kit - bower.json",
+  "version": "1.0.0",
+  "description": "bower.json example file for Starter kit",
+  "authors": [
+    "Luka Jerkovic"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jerkovicl/gulp-starter-kit",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.1",
+    "owl-carousel2": "latest",
+    "moment": "~2.8.4",
+    "matchHeight": "latest",
+    "magnific-popup": "latest"
+  },
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.1",
+    "owl-carousel2": "latest",
+    "moment": "~2.8.4",
+    "matchHeight": "latest",
+    "magnific-popup": "latest"
+  
+  }
+}

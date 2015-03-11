@@ -1,0 +1,25 @@
+{
+  "maxerr": 500,               // {int} Maximum error before stopping
+  "node": true,                // Node.js
+  "jasmine": true,             // Jasmine.js
+  "globals": {                 // additional predefined global variables
+    "gapi": true,
+    "define": true,
+    "angular": false
+  },
+  "browser": true,             // Web Browser (window, document, etc)
+  "esnext": true,              // Allow ES.next (ES6) syntax (ex: `const`)
+  "bitwise": true,             // Prohibit bitwise operators (&, |, ^, etc.)
+  "camelcase": true,           // Identifiers must be in camelCase
+  "devel": true,               // Development/debugging (alert, confirm, etc)
+  "curly": true,               // true: Require {} for every new block or scope
+  "eqeqeq": true,              // true: Require triple equals (===) for comparison
+  "immed": true,               // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());
+  "indent": 2,                 // {int} Number of spaces to use for indentation
+  "newcap": true,              // true: Require capitalization of all constructor functions e.g. `new F()`
+  "noarg": true,               // true: Prohibit use of `arguments.caller` and `arguments.callee`
+  "quotmark": "single",        // Quotation mark consistency:
+  "undef": true,               // Require all non-global variables to be declared (prevents global leaks)
+  "unused": "vars",            // true: Require all defined variables be used
+  "strict": true               // true: Requires all functions run in ES5 Strict Mode
+}
