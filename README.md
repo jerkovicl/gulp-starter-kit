@@ -4,11 +4,11 @@ Starter kit for Javascript build automation using Gulp & Bower
 ## Requirements
 
 - Install Node (64-bit version)
-	- download [here](https://nodejs.org/download/) 
+	- download [here](https://nodejs.org/download/)
     - Read here for some [tips on Windows](https://github.com/npm/npm/wiki/Troubleshooting#upgrading-on-windows/)
 - Install GitHub for Windows
 	- download [here](https://github-windows.s3.amazonaws.com/GitHubSetup.exe)
-	
+
 ## Quick Start
 Clone this repo and install Gulp & Bower using these commands
 
@@ -40,4 +40,4 @@ bower install //install bower dependencies
 - ***gulpfile.js*** - file that tells Gulp it's tasks and what those tasks are and when to run them
 - ***karma.conf.js*** - configuration file for Karma Test Runner
 
-> All dotfiles can be placed at the root of your project or inside user's HOME directory 
+> All dotfiles can be placed at the root of your project or inside user's HOME directory
