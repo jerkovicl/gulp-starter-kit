@@ -34,6 +34,7 @@ bower install //install bower dependencies
 - ***.jshintignore*** - exclude some files from linting, usually .min.js files
 - ***.jlintrc*** - alternative to ***.jshintrc*** file
 - ***.csslintrc*** - set of rules defined for linting CSS files using CSSLint, rules [here](http://goo.gl/JJl4rP)
+- ***.htmlhintrc*** - set of rules defined for linting HTML files using HTMLHint, rules [here](http://goo.gl/4UEDpF)
 - ***.bowerrc*** - configuration file for Bower, more info [here](http://goo.gl/DQNPM5)
 - ***bower.json*** - configuration file to define your project's dependencies
 - ***package.json*** - file contains meta data about your app or module. Most importantly, it includes the list of dependencies to install from npm when running npm install
