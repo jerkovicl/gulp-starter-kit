@@ -419,4 +419,14 @@ gulp.task('release:mobile', [
  'clean:mobile',
  'build:rjs',
  'copyto:dist'
-]);
+], function() {
+  log('Building everything');
+
+  var msg = {
+        title: 'gulp build',
+        subtitle: 'Deployed to the dist folder',
+        message: 'Runing `gulp release:mobile`'
+    };
+  log(msg);
+  notify(msg);
+});
