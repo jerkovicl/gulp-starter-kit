@@ -124,7 +124,7 @@ function startPlatoVisualizer(done) {
     title: 'Plato Inspections Report',
     exclude: excludeFiles
   };
-  var outputDir = './report/plato';
+  var outputDir = '/report/plato';
 
   plato.inspect(files, outputDir, options, platoCompleted);
 
