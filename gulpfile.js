@@ -128,7 +128,6 @@ gulp.task('htmlreplace:dev', function () {
     .pipe(gulp.dest('dist'));
 });
 
-
 // Options is a single string htmlreplace({js: 'js/main.js'})
 
 // Options is an array of strings htmlreplace({js: ['js/monster.js', 'js/hero.js']})
@@ -165,7 +164,7 @@ gulp.task('build:rjs', function () {
     CLEAN SCRIPTS
 *******************************************************************************/
 gulp.task('clean:leftovers', [], function () {
-  console.log("Clean all files in build folder");
+  console.log('Clean all files in build folder');
   gulp.src(['./src/libs/require*.*', './src/libs/underscore*.*', './src/scripts/app/vm', 'scripts/main.js'])
     .pipe(clean());
 });
@@ -235,7 +234,6 @@ gulp.task('clean:mobile', function () {
     }
   });
 });
-
 
 /*******************************************************************************
     COPY TO DIST
