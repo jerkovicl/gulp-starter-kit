@@ -9,11 +9,16 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var del = require('del');
+var glob = require('glob');
+var path = require('path');
+var _ = require('lodash');
+var notifier = require('node-notifier');
 var clean = require('gulp-clean');
 var robocopy = require('robocopy');
 var htmlreplace = require('gulp-html-replace');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
+var plato = require('plato');
 var karma = require('gulp-karma');
 var requirejsOptimize = require('gulp-requirejs-optimize');
 var $$ = require('gulp-load-plugins')();
@@ -22,6 +27,7 @@ module.exports = gulp;
 /*******************************************************************************
     PROJECT PATHS
 *******************************************************************************/
+var colors = $$.util.colors;
 var dirs = {
   dev: {
     root: './src',
@@ -59,6 +65,77 @@ gulp.task('copyto:src', function () {
     })
     .pipe(gulp.dest('./src'));
 });
+
+/*******************************************************************************
+    CREATE VISUALIZER REPORT
+*******************************************************************************/
+/**
+ * Log a message or series of messages using chalk's blue color.
+ * Can pass in a string, object or array.
+ */
+function log(msg) {
+  if (typeof(msg) === 'object') {
+    for (var item in msg) {
+      if (msg.hasOwnProperty(item)) {
+        $$.util.log(colors.blue(msg[item]));
+      }
+    }
+  } else {
+    $$.util.log(colors.blue(msg));
+  }
+}
+
+/**
+ * Show OS level notification using node-notifier
+ */
+function notify(options) {
+  var notifyOptions = {
+        sound: 'Bottle',
+        contentImage: path.join(__dirname, 'gulp.png'),
+        icon: path.join(__dirname, 'gulp.png')
+    };
+  _.assign(notifyOptions, options);
+  notifier.notify(notifyOptions);
+}
+
+gulp.task('plato', function(done) {
+  log('Analyzing source with Plato');
+  log('Browse to /report/plato/index.html to see Plato results');
+
+  startPlatoVisualizer(done);
+  var msg = {
+       title: 'Plato report done',
+       subtitle: 'Deployed to report folder',
+       message: 'Done `done`'
+   };
+  notify(msg);
+});
+/*******************************************************************************
+    START PLATO INSPECTOR AND VISUALIZER
+*******************************************************************************/
+
+function startPlatoVisualizer(done) {
+  log('Running Plato');
+
+  var files = glob.sync(dirs.dev.js);
+  var excludeFiles = /.*\.spec\.js/;
+
+  var options = {
+    title: 'Plato Inspections Report',
+    exclude: excludeFiles
+  };
+  var outputDir = './report/plato';
+
+  plato.inspect(files, outputDir, options, platoCompleted);
+
+  function platoCompleted(report) {
+    var overview = plato.getOverviewReport(report);
+    log(overview.summary);
+    if (done) {
+      done();
+    }
+  }
+}
 
 /*******************************************************************************
     LINT TASK
@@ -321,6 +398,7 @@ gulp.task('default', function () {
 });
 
 gulp.task('dev:web', [
+ 'plato',
  'jshint',
  'htmlreplace:dev'
 ]);
