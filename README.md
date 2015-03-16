@@ -33,7 +33,7 @@ bower install //install bower dependencies
 - ***.jscsrc*** - alternative to ***.jscs.json*** file, for case when editor doesn't support json format
 - ***.jshintrc*** - set of rules defined for linting JS files (protecting against syntax errors and browser bugs)
 - ***.jshintignore*** - exclude some files from linting, usually .min.js files
-- ***.jlintrc*** - alternative to ***.jshintrc*** file, for use with JLint in case editor doesn't support JSHint 
+- ***.jlintrc*** - alternative to ***.jshintrc*** file, for use with JSLint in case editor doesn't support JSHint 
 - ***.csslintrc*** - set of rules defined for linting CSS files using CSSLint, rules [here](http://goo.gl/JJl4rP)
 - ***.htmlhintrc*** - set of rules defined for linting HTML files using HTMLHint, rules [here](http://goo.gl/4UEDpF)
 - ***.bowerrc*** - configuration file for Bower, more info [here](http://goo.gl/DQNPM5)
