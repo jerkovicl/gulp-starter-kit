@@ -13,6 +13,7 @@ var glob = require('glob');
 var path = require('path');
 var _ = require('lodash');
 var notifier = require('node-notifier');
+var install = require('gulp-install');
 var clean = require('gulp-clean');
 var robocopy = require('robocopy');
 var htmlreplace = require('gulp-html-replace');
@@ -46,6 +47,13 @@ var dirs = {
   }
 };
 
+/*******************************************************************************
+    INSTALL NPM I BOWER PACKAGES/DEPENDENCIES FOR PROJECT
+*******************************************************************************/
+gulp.task('install:all', function () {
+  gulp.src(['./bower.json', './package.json'])
+  .pipe(install());
+});
 /*******************************************************************************
     COPY TO SRC
 *******************************************************************************/
