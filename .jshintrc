@@ -21,9 +21,10 @@
   "quotmark": "single",        // Quotation mark consistency:
   "undef": true,               // Require all non-global variables to be declared (prevents global leaks)
   "unused": "vars",            // true: Require all defined variables be used
-  "strict": true,               // true: Requires all functions run in ES5 Strict Mode
-  "trailing": true,
-  "smarttabs": true,
-  "jquery": true
+  "strict": true,              // true: Requires all functions run in ES5 Strict Mode
+  "trailing": true,            // Prohibit trailing whitespaces.
+  "smarttabs": true,           // Tolerate mixed tabs and spaces when the latter are used for alignmnent only.
+  "multistr": false,           // Tolerate multi-line strings.
+  "jquery": true               // Enable globals exposed by jQuery JavaScript library.
   
 }
