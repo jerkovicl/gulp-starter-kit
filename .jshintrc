@@ -5,8 +5,7 @@
   "globals": {                 // additional predefined global variables
     "gapi": true,
     "define": true,
-    "angular": false,
-    "jquery": true
+    "angular": false
   },
   "browser": true,             // Web Browser (window, document, etc)
   "esnext": true,              // Allow ES.next (ES6) syntax (ex: `const`)
@@ -22,5 +21,9 @@
   "quotmark": "single",        // Quotation mark consistency:
   "undef": true,               // Require all non-global variables to be declared (prevents global leaks)
   "unused": "vars",            // true: Require all defined variables be used
-  "strict": true               // true: Requires all functions run in ES5 Strict Mode
+  "strict": true,               // true: Requires all functions run in ES5 Strict Mode
+  "trailing": true,
+  "smarttabs": true,
+  "jquery": true
+  
 }
