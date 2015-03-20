@@ -20,5 +20,8 @@
   "quotmark": "single",
   "undef": true,
   "unused": "vars",
-  "strict": true
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "jquery": true
 }
