@@ -330,7 +330,7 @@ var filesToMove = [
         //'./src/page_action/**/*.*',
         //'./manifest.json'
     ];
-
+//TO DO rewrite for GULP v4
 gulp.task('copyto:dist', ['clean:leftovers'], function () {
   // the base option sets the relative root for the set of files,
   // preserving the folder structure
@@ -405,12 +405,14 @@ gulp.task('default', function () {
   // place code for your default task here
 });
 
+//TO DO rewrite for GULP v4
 gulp.task('dev:web', [
  'plato',
  'jshint',
  'htmlreplace:dev'
 ]);
 
+//TO DO rewrite for GULP v4
 gulp.task('release:dev', [
  'copyto:src',
  'jshint',
@@ -420,6 +422,7 @@ gulp.task('release:dev', [
  'copyto:dist'
 ]);
 
+//TO DO rewrite for GULP v4
 gulp.task('release:mobile', [
  'copyto:src',
  'jshint',
