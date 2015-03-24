@@ -17,11 +17,13 @@ var install = require('gulp-install');
 var clean = require('gulp-clean');
 var robocopy = require('robocopy');
 var htmlreplace = require('gulp-html-replace');
+var stripDebug = require('gulp-strip-debug');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var plato = require('plato');
 var karma = require('gulp-karma');
 var requirejsOptimize = require('gulp-requirejs-optimize');
+var todo = require('gulp-todo');
 var $$ = require('gulp-load-plugins')();
 module.exports = gulp;
 
@@ -52,7 +54,7 @@ var dirs = {
 *******************************************************************************/
 gulp.task('install:all', function () {
   gulp.src(['./bower.json', './package.json'])
-  .pipe(install());
+    .pipe(install());
 });
 /*******************************************************************************
     COPY TO SRC
@@ -75,6 +77,19 @@ gulp.task('copyto:src', function () {
 });
 
 /*******************************************************************************
+    GENERATE TODO.md FILE FROM THe JAVASCRIPT TODOS AND FIXMES
+*******************************************************************************/
+
+gulp.task('todo', function () {
+  gulp.src('./gulpfile.js')
+    .pipe(todo())
+    .pipe($$.todo.reporter('json', {
+      fileName: 'todo.json'
+    }))
+    .pipe(gulp.dest('./'));
+});
+
+/*******************************************************************************
     CREATE VISUALIZER REPORT
 *******************************************************************************/
 /**
@@ -82,7 +97,7 @@ gulp.task('copyto:src', function () {
  * Can pass in a string, object or array.
  */
 function log(msg) {
-  if (typeof(msg) === 'object') {
+  if (typeof (msg) === 'object') {
     for (var item in msg) {
       if (msg.hasOwnProperty(item)) {
         $$.util.log(colors.blue(msg[item]));
@@ -98,24 +113,24 @@ function log(msg) {
  */
 function notify(options) {
   var notifyOptions = {
-        sound: 'Bottle',
-        contentImage: path.join(__dirname, 'gulp.png'),
-        icon: path.join(__dirname, 'gulp.png')
-    };
+    sound: 'Bottle',
+    contentImage: path.join(__dirname, 'gulp.png'),
+    icon: path.join(__dirname, 'gulp.png')
+  };
   _.assign(notifyOptions, options);
   notifier.notify(notifyOptions);
 }
 
-gulp.task('plato', function(done) {
+gulp.task('plato', function (done) {
   log('Analyzing source with Plato');
   log('Browse to /report/plato/index.html to see Plato results');
 
   startPlatoVisualizer(done);
   var msg = {
-       title: 'Plato report done',
-       subtitle: 'Deployed to report folder',
-       message: 'Done `done`'
-   };
+    title: 'Plato report done',
+    subtitle: 'Deployed to report folder',
+    message: 'Done `done`'
+  };
   notify(msg);
 });
 /*******************************************************************************
@@ -242,6 +257,7 @@ gulp.task('build:rjs', function () {
         insertRequire: ['../main']
       };
     }))
+    .pipe(stripDebug())
     .pipe(gulp.dest('dist'));
 });
 
@@ -265,6 +281,7 @@ gulp.task('build:otherjs', function () {
     .pipe(gulp.dest('./dist'))
     .pipe(rename('all.min.js'))
     .pipe(uglify())
+    .pipe(stripDebug())
     .pipe(gulp.dest('./dist'));
 });
 /*******************************************************************************
@@ -330,7 +347,7 @@ var filesToMove = [
         //'./src/page_action/**/*.*',
         //'./manifest.json'
     ];
-//TO DO rewrite for GULP v4
+// TODO rewrite for GULP v4
 gulp.task('copyto:dist', ['clean:leftovers'], function () {
   // the base option sets the relative root for the set of files,
   // preserving the folder structure
@@ -405,14 +422,14 @@ gulp.task('default', function () {
   // place code for your default task here
 });
 
-//TO DO rewrite for GULP v4
+// TODO rewrite for GULP v4
 gulp.task('dev:web', [
  'plato',
  'jshint',
  'htmlreplace:dev'
 ]);
 
-//TO DO rewrite for GULP v4
+// TODO rewrite for GULP v4
 gulp.task('release:dev', [
  'copyto:src',
  'jshint',
@@ -422,7 +439,7 @@ gulp.task('release:dev', [
  'copyto:dist'
 ]);
 
-//TO DO rewrite for GULP v4
+// TODO rewrite for GULP v4
 gulp.task('release:mobile', [
  'copyto:src',
  'jshint',
@@ -430,14 +447,14 @@ gulp.task('release:mobile', [
  'clean:mobile',
  'build:rjs',
  'copyto:dist'
-], function() {
+], function () {
   log('Building everything');
 
   var msg = {
-        title: 'gulp build',
-        subtitle: 'Deployed to the dist folder',
-        message: 'Runing `gulp release:mobile`'
-    };
+    title: 'gulp build',
+    subtitle: 'Deployed to the dist folder',
+    message: 'Runing `gulp release:mobile`'
+  };
   log(msg);
   notify(msg);
 });
