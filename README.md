@@ -43,5 +43,6 @@ bower install //install bower dependencies
 - ***package.json*** - file contains meta data about your app or module. Most importantly, it includes the list of dependencies to install from npm when running npm install
 - ***gulpfile.js*** - file that tells Gulp it's tasks and what those tasks are and when to run them
 - ***karma.conf.js*** - configuration file for Karma Test Runner
+- ***.travis.yml*** - configuration file for Travis CI's build environment
 
 > All dotfiles can be placed at the root of your project or inside user's HOME directory
