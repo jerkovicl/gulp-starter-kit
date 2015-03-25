@@ -5,26 +5,29 @@
 var gulp = require('gulp');
 
 // include plug-ins
+
+var _ = require('lodash');
+var $$ = require('gulp-load-plugins')();
+var clean = require('gulp-clean');
 var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 var del = require('del');
 var glob = require('glob');
-var path = require('path');
-var _ = require('lodash');
-var notifier = require('node-notifier');
-var install = require('gulp-install');
-var clean = require('gulp-clean');
-var robocopy = require('robocopy');
 var htmlreplace = require('gulp-html-replace');
-var stripDebug = require('gulp-strip-debug');
-var jshint = require('gulp-jshint');
+var install = require('gulp-install');
 var jscs = require('gulp-jscs');
-var plato = require('plato');
+var jshint = require('gulp-jshint');
 var karma = require('gulp-karma');
+var notifier = require('node-notifier');
+var path = require('path');
+var plato = require('plato');
+var rename = require('gulp-rename');
+var request = require('request');
 var requirejsOptimize = require('gulp-requirejs-optimize');
+var robocopy = require('robocopy');
+var stripDebug = require('gulp-strip-debug');
 var todo = require('gulp-todo');
-var $$ = require('gulp-load-plugins')();
+var uglify = require('gulp-uglify');
+
 module.exports = gulp;
 
 /*******************************************************************************
@@ -412,6 +415,28 @@ gulp.task('test', function () {
 
 gulp.task('autotest', function () {
   return gulp.watch(['www/js/**/*.js', 'test/spec/*.js'], ['test']);
+});
+
+/*******************************************************************************
+    SEO -> SEND A REQUEST TO GOOGLE AND BING & INFORM THEM TO RE-INDEX THE SITE
+*******************************************************************************/
+
+gulp.task('seo', function (error) {
+  request('http://www.google.com/webmasters/tools/ping?sitemap={URL TO YOUR SITEMAP.XML}');
+  request('http://www.bing.com/webmaster/ping.aspx?siteMap={URL TO YOUR SITEMAP.XML}');
+  console.log(error);
+});
+
+/*******************************************************************************
+    TEST SITE AVAILABILITY
+*******************************************************************************/
+gulp.task('test:sitestatus', function (error) {
+  request('yoursite.com', function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      console.log(body); // Show the HTML for the page.
+    }
+  });
+  console.log(error);
 });
 
 /*******************************************************************************
