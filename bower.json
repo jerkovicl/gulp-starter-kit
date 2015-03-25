@@ -26,6 +26,6 @@
     "moment": "~2.8.4",
     "matchHeight": "latest",
     "magnific-popup": "latest",
-    "kendo-ui": "https://bower.telerik.com/bower-kendo-ui.git#~2015.1.318"
+    "kendo-ui-core": "latest"
   }
 }
