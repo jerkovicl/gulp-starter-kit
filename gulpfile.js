@@ -18,6 +18,7 @@ var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var karma = require('gulp-karma');
 var notifier = require('node-notifier');
+var pagespeed = require('psi');
 var path = require('path');
 var plato = require('plato');
 var rename = require('gulp-rename');
@@ -437,6 +438,19 @@ gulp.task('test:sitestatus', function (error) {
     }
   });
   console.log(error);
+});
+
+/*******************************************************************************
+    RUN PAGESPEED INSIGHTS
+*******************************************************************************/
+gulp.task('pagespeed', function (cb) {
+  // Update the below URL to the public URL of your site
+  pagespeed.output('example.com', {
+    strategy: 'mobile',
+    // By default we use the PageSpeed Insights free (no API key) tier.
+    // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
+    // key: 'YOUR_API_KEY'
+  }, cb);
 });
 
 /*******************************************************************************
