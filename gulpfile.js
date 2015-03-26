@@ -422,10 +422,10 @@ gulp.task('autotest', function () {
     SEO -> SEND A REQUEST TO GOOGLE AND BING & INFORM THEM TO RE-INDEX THE SITE
 *******************************************************************************/
 
-gulp.task('seo', function (error) {
+gulp.task('seo', function (cb) {
   request('http://www.google.com/webmasters/tools/ping?sitemap={URL TO YOUR SITEMAP.XML}');
   request('http://www.bing.com/webmaster/ping.aspx?siteMap={URL TO YOUR SITEMAP.XML}');
-  console.log(error);
+  cb();
 });
 
 /*******************************************************************************
@@ -443,10 +443,21 @@ gulp.task('test:sitestatus', function (error) {
 /*******************************************************************************
     RUN PAGESPEED INSIGHTS
 *******************************************************************************/
-gulp.task('pagespeed', function (cb) {
+gulp.task('pagespeed:mobile', function (cb) {
   // Update the below URL to the public URL of your site
   pagespeed.output('example.com', {
     strategy: 'mobile',
+    // By default we use the PageSpeed Insights free (no API key) tier.
+    // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
+    // key: 'YOUR_API_KEY'
+  }, cb);
+});
+
+gulp.task('pagespeed:desktop', function (cb) {
+  // Update the below URL to the public URL of your site
+  pagespeed.output('example.com', {
+    strategy: 'desktop',
+    //nokey: 'true'
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: 'YOUR_API_KEY'
