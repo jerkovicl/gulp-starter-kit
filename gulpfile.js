@@ -1,4 +1,4 @@
-/*jslint node: true */
+/*jshint node: true */
 /*global require */
 'use strict';
 //include gulp
