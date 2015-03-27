@@ -87,11 +87,10 @@ gulp.task('copyto:src', function () {
 gulp.task('todo', function () {
   gulp.src('./gulpfile.js')
     .pipe(todo())
-    .pipe(gulp.dest('./')) //output todo.md as markdown
     .pipe($$.todo.reporter('json', {
       fileName: 'todo.json'
     }))
-    .pipe(gulp.dest('./')); //output todo.json as json
+    .pipe(gulp.dest('./'));
 });
 
 /*******************************************************************************
