@@ -3,24 +3,30 @@
     "file": "gulpfile.js",
     "text": "rewrite for GULP v4",
     "kind": "TODO",
-    "line": 350
+    "line": 355
+  },
+  {
+    "file": "gulpfile.js",
+    "text": "make this work for cordova",
+    "kind": "TODO",
+    "line": 401
   },
   {
     "file": "gulpfile.js",
     "text": "rewrite for GULP v4",
     "kind": "TODO",
-    "line": 425
+    "line": 477
   },
   {
     "file": "gulpfile.js",
     "text": "rewrite for GULP v4",
     "kind": "TODO",
-    "line": 432
+    "line": 484
   },
   {
     "file": "gulpfile.js",
     "text": "rewrite for GULP v4",
     "kind": "TODO",
-    "line": 442
+    "line": 494
   }
 ]
