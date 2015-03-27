@@ -398,6 +398,7 @@ gulp.task('deploy', function () {
 /*******************************************************************************
     RUN KARMA UNIT TESTS WIP
 *******************************************************************************/
+// TODO make this work for cordova
 gulp.task('test', function () {
   // Be sure to return the stream
   // NOTE: Using the fake './foobar' so as to run the files
