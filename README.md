@@ -47,4 +47,5 @@ bower install //install bower dependencies
 - ***.travis.yml*** - configuration file for Travis CI's build environment
 
 > All dotfiles can be placed at the root of your project or inside user's HOME directory
+
 > Autoformating .js files with JSCS v.1.12.0 -> ``` jscs path/to/script -x ```
