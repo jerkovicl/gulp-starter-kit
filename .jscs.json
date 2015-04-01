@@ -17,7 +17,6 @@
     },
     "validateIndentation": 2,
     "validateQuoteMarks": "'",
-    "validateLineBreaks": "LF",
 
     "disallowMultipleLineStrings": true,
     "disallowMixedSpacesAndTabs": true,
@@ -60,9 +59,5 @@
 
     "disallowMultipleLineBreaks": true,
     "disallowNewlineBeforeBlockStatements": true,
-    "excludeFiles": ["node_modules/**"],
-    "validateJSDoc": {
-        "checkParamNames": true,
-        "requireParamTypes": true
-    }
+    "excludeFiles": ["node_modules/**"]
 }
