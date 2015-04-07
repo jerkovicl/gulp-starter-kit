@@ -21,6 +21,7 @@ var notifier = require('node-notifier');
 var pagespeed = require('psi');
 var path = require('path');
 var plato = require('plato');
+var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var request = require('request');
 var requirejsOptimize = require('gulp-requirejs-optimize');
@@ -54,6 +55,14 @@ var dirs = {
 };
 
 /*******************************************************************************
+    ERROR HANDLER FOR GULP PLUMBER
+*******************************************************************************/
+var onError = function (err) {
+  console.log('An error occurred:', err.message);
+  this.emit('end');
+};
+
+/*******************************************************************************
     INSTALL NPM I BOWER PACKAGES/DEPENDENCIES FOR PROJECT
 *******************************************************************************/
 gulp.task('install:all', function () {
@@ -77,11 +86,14 @@ gulp.task('copyto:src', function () {
   gulp.src(filesToMove, {
       base: './'
     })
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(gulp.dest('./src'));
 });
 
 /*******************************************************************************
-    GENERATE TODO.md FILE FROM THe JAVASCRIPT TODOS AND FIXMES
+    GENERATE TODO.md FILE FROM THE JAVASCRIPT TODOS AND FIXMES
 *******************************************************************************/
 
 gulp.task('todo', function () {
@@ -242,6 +254,9 @@ gulp.task('htmlreplace:dev', function () {
 *******************************************************************************/
 gulp.task('build:rjs', function () {
   return gulp.src('./src/scripts/app/*.js')
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(requirejsOptimize(function (file) {
       return {
         name: '../main',
@@ -470,7 +485,7 @@ gulp.task('pagespeed:desktop', function (cb) {
     DEFAULT TASKS
 *******************************************************************************/
 
-gulp.task('default', function () {
+gulp.task('default', ['install:all'], function () {
   // place code for your default task here
 });
 
