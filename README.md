@@ -2,7 +2,7 @@
 Starter kit for Javascript build automation using Gulp & Bower
 
 [![Build Status](https://travis-ci.org/jerkovicl/gulp-starter-kit.svg?branch=master)](https://travis-ci.org/jerkovicl/gulp-starter-kit)
-[![devDependency Status](https://david-dm.org/jerkovicl/gulp-starter-kit/dev-status.png)](https://david-dm.org/jerkovicl/gulp-starter-kit#info=devDependencies&view=table)
+[![devDependency Status](https://david-dm.org/jerkovicl/gulp-starter-kit/dev-status.png)](https://david-dm.org/jerkovicl/gulp-starter-kit#info=devDependencies)
 
 ## Requirements
 
