@@ -49,7 +49,7 @@ $RECYCLE.BIN/
 
 # Ignore Node & Bower
 ###################
-node_modules
+node_modules/
 bower_components
 build
 npm-debug.log
