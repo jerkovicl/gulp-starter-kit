@@ -9,8 +9,8 @@ Starter kit for Javascript build automation using Gulp & Bower
 - Install Node (64-bit version)
 	- download [here](https://nodejs.org/download/)
     - Read here for some [tips on Windows](https://github.com/npm/npm/wiki/Troubleshooting#upgrading-on-windows/)
-- Install Git & GitHub for Windows  
-        - download [here](http://git-scm.com/download/win)
+- Install Git & GitHub for Windows
+- download [here](http://git-scm.com/download/win)
 	- download [here](https://github-windows.s3.amazonaws.com/GitHubSetup.exe)
 
 ## Quick Start
