@@ -27,6 +27,7 @@
     "gulp-todo": "^2.5.1",
     "gulp-uglify": "^1.1.0",
     "gulp-util": "^3.0.2",
+    "husky": "latest",
     "jasmine-core": "^2.2.0",
     "jshint-stylish": "^1.0.0",
     "karma": "^0.12.31",
@@ -48,6 +49,8 @@
   "scripts": {
     "init": "npm install",
     "install": "bower install",
-    "start": ""
+    "start": "",
+    "precommit": "gulp lint",
+    "prepush": "gulp stest"
   }
 }
