@@ -11,6 +11,7 @@ Starter kit for Javascript build automation using Gulp & Bower
     - Read here for some [tips on Windows](https://github.com/npm/npm/wiki/Troubleshooting#upgrading-on-windows/)
 - Install Git & GitHub for Windows
 	- download [here](http://git-scm.com/download/win)
+	- during installation choose option `Run Git from the Windows Command Prompt`, tutorial [here](https://support.codebasehq.com/articles/getting-started/git-on-windows).    
 	- download [here](https://github-windows.s3.amazonaws.com/GitHubSetup.exe)
 
 ## Quick Start
