@@ -103,3 +103,4 @@ report
 # Visual Studo 2015 cache/options directory #
 ######################
 .vs/
+.settings/
