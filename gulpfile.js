@@ -82,15 +82,15 @@ var filesToMove = [
     ];
 
 gulp.task('copyto:src', function () {
-  // the base option sets the relative root for the set of files,
-  // preserving the folder structure
-  gulp.src(filesToMove, {
-      base: './'
-    })
-    .pipe(plumber({
+  return gulp.src([
+    './some-folder/**/*.*'
+  ], {
+    dot: true
+  })
+  .pipe(plumber({
       errorHandler: onError
-    }))
-    .pipe(gulp.dest('./src'));
+  }))
+  .pipe(gulp.dest('./src'));
 });
 
 /*******************************************************************************
@@ -368,12 +368,11 @@ var filesToMove = [
     ];
 // TODO rewrite for GULP v4
 gulp.task('copyto:dist', ['clean:leftovers'], function () {
-  // the base option sets the relative root for the set of files,
-  // preserving the folder structure
-  gulp.src(filesToMove, {
-      base: './src'
-    })
-    .pipe(gulp.dest('./dist'));
+  return gulp.src([
+    './src/**/*.*'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist'));
 });
 
 /*******************************************************************************
