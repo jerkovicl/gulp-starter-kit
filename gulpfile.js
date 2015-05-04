@@ -1,4 +1,3 @@
-/// <reference path="typings/node/node.d.ts"/>
 /*jshint node: true */
 /*global require */
 'use strict';
@@ -224,6 +223,7 @@ gulp.task('htmlreplace:release', function () {
   gulp.src('./src/index.html')
     .pipe(htmlreplace({
       //'css': 'styles.min.css',
+      'analytics': 'scripts/app/analytics_release.js',
       'js': 'scripts/main-built.js'
     }))
     .pipe(gulp.dest('dist'));
@@ -236,6 +236,7 @@ gulp.task('htmlreplace:release', function () {
 gulp.task('htmlreplace:dev', function () {
   gulp.src('./index.html')
     .pipe(htmlreplace({
+      'analytics': 'scripts/app/analytics_debug.js',
       js: {
         src: [['scripts/libs/require.js', 'scripts/main']],
         tpl: '<script src="%s" data-main="%s"></script>'
