@@ -1,3 +1,4 @@
+/// <reference path="/typings/tsd.d.ts" />
 /*jshint node: true */
 /*global require */
 'use strict';
