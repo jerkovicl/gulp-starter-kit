@@ -86,12 +86,12 @@ gulp.task('copyto:src', function () {
   return gulp.src([
     './some-folder/**/*.*'
   ], {
-    dot: true
-  })
-  .pipe(plumber({
+      dot: true
+    })
+    .pipe(plumber({
       errorHandler: onError
-  }))
-  .pipe(gulp.dest('./src'));
+    }))
+    .pipe(gulp.dest('./src'));
 });
 
 /*******************************************************************************
