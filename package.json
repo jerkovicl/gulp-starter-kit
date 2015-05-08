@@ -49,10 +49,9 @@
   },
   "scripts": {
     "init": "npm init",
-    "install": "npm install",
+    "install": "bower install",
     "start": "",
     "precommit": "gulp lint",
-    "prepush": "gulp todo",
-    "postinstall": "node_modules/.bin/bower install"
+    "prepush": "gulp todo"
   }
 }
