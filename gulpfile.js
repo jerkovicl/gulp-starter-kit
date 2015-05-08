@@ -189,10 +189,7 @@ var jsFiles = [
 
 //longer & precise liniting
 gulp.task('lint', function () {
-  return gulp.src([
-      jsFiles, '!**/*.min.js', '!node_modules/**',
-      '!bower_components/**', '!build/**', '!dist/**'
-    ])
+  return gulp.src(['dist/**/*'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jscs({

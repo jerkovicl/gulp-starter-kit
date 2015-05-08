@@ -48,8 +48,8 @@
     "url": "https://github.com/jerkovicl/gulp-starter-kit"
   },
   "scripts": {
-    "init": "npm install",
-    "install": "bower instal",
+    "init": "npm init",
+    "install": "npm install",
     "start": "",
     "precommit": "gulp lint",
     "prepush": "gulp todo",
