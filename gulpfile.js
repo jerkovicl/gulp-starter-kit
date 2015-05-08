@@ -18,6 +18,7 @@ var install = require('gulp-install');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var karma = require('gulp-karma');
+var less = require('gulp-less');
 var notifier = require('node-notifier');
 var pagespeed = require('psi');
 var path = require('path');
@@ -305,6 +306,16 @@ gulp.task('build:otherjs', function () {
     .pipe(stripDebug())
     .pipe(gulp.dest('./dist'));
 });
+
+/*******************************************************************************
+    COMPILE LESS TO CSS
+*******************************************************************************/
+gulp.task('less', function () {
+  return gulp.src('styles/main.less')
+    .pipe(less())
+    .pipe(gulp.dest('styles/main.css'));
+});
+
 /*******************************************************************************
     DELETE FILES FROM FOLDERS FOR MOBILE WEB
 *******************************************************************************/
