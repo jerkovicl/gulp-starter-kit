@@ -277,7 +277,8 @@ gulp.task('build:rjs', function () {
       };
     }))
     .pipe(stripDebug())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .pipe($$.size({title: 'requirejs-main'}));
 });
 
 /*******************************************************************************
@@ -301,7 +302,8 @@ gulp.task('build:otherjs', function () {
     .pipe(rename('all.min.js'))
     .pipe(uglify())
     .pipe(stripDebug())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist'))
+    .pipe($$.size({title: 'scripts'}));
 });
 
 /*******************************************************************************
