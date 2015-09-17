@@ -12,7 +12,7 @@ Starter kit for Javascript build automation using Gulp & Bower
 - Install Git & GitHub for Windows
 	- download [here](http://git-scm.com/download/win)
 	- during installation choose option `Run Git from the Windows Command Prompt`, tutorial [here](https://support.codebasehq.com/articles/getting-started/git-on-windows).
-	- or choose option `Use Git and optional Unix tools from the Windows Command Prompt` 
+	- or choose option `Use Git and optional Unix tools from the Windows Command Prompt`   
 	If you choose this option, you'll be able to use the git command from the Windows Command Prompt AS WELL AS all the extra unix tools such as ls, pwd, and ssh-keygen from the Windows Command Prompt.  
 Yes, this does replace some Windows-based tools, such as find with the unix version, but unless you're creating python scripts or batch scripts to manage Windows in some fashion, you can get away with this option with little to no issue.
 	- download [here](https://github-windows.s3.amazonaws.com/GitHubSetup.exe)
