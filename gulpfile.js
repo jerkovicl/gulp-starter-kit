@@ -28,6 +28,7 @@ var rename = require('gulp-rename');
 var request = require('request');
 var requirejsOptimize = require('gulp-requirejs-optimize');
 var robocopy = require('robocopy');
+var run = require('gulp-run');
 var stripDebug = require('gulp-strip-debug');
 var todo = require('gulp-todo');
 var uglify = require('gulp-uglify');
@@ -59,7 +60,7 @@ var dirs = {
 /*******************************************************************************
     ERROR HANDLER FOR GULP PLUMBER
 *******************************************************************************/
-var onError = function (err) {
+var onError = function(err) {
   console.log('An error occurred:', err.message);
   this.emit('end');
 };
@@ -67,27 +68,37 @@ var onError = function (err) {
 /*******************************************************************************
     INSTALL NPM I BOWER PACKAGES/DEPENDENCIES FOR PROJECT
 *******************************************************************************/
-gulp.task('install:all', function () {
+gulp.task('install:all', function() {
   gulp.src(['./bower.json', './package.json'])
     .pipe(install());
 });
+
+/*******************************************************************************
+    UPDATE PACKAGES FROM PACKAGE.JSON TO LATEST VERSIONS FOR PROJECT
+*******************************************************************************/
+// TODO needs more testing
+// FIXME gulp-run deprecated find alternative
+gulp.task('update-pjson', function() {
+  run('pjup').exec();
+});
+
 /*******************************************************************************
     COPY TO SRC
 *******************************************************************************/
 
 var filesToMove = [
-        './**/*.*'
-        //'./icons/**/*.*',
-        //'./src/page_action/**/*.*',
-        //'./manifest.json'
-    ];
+  './**/*.*'
+  //'./icons/**/*.*',
+  //'./src/page_action/**/*.*',
+  //'./manifest.json'
+];
 
-gulp.task('copyto:src', function () {
+gulp.task('copyto:src', function() {
   return gulp.src([
     './some-folder/**/*.*'
   ], {
-      dot: true
-    })
+    dot: true
+  })
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -98,7 +109,7 @@ gulp.task('copyto:src', function () {
     GENERATE TODO.md FILE FROM THE JAVASCRIPT TODOS AND FIXMES
 *******************************************************************************/
 
-gulp.task('todo', function () {
+gulp.task('todo', function() {
   gulp.src('./gulpfile.js')
     .pipe(todo())
     .pipe(gulp.dest('./')) //output todo.md as markdown
@@ -140,7 +151,7 @@ function notify(options) {
   notifier.notify(notifyOptions);
 }
 
-gulp.task('plato', function (done) {
+gulp.task('plato', function(done) {
   log('Analyzing source with Plato');
   log('Browse to /report/plato/index.html to see Plato results');
 
@@ -188,7 +199,7 @@ var jsFiles = [
 ];
 
 //longer & precise liniting
-gulp.task('lint', function () {
+gulp.task('lint', function() {
   return gulp.src(['dist/**/*'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
@@ -198,9 +209,9 @@ gulp.task('lint', function () {
 });
 
 //shorter linting with stylish error reporting
-gulp.task('jshint', function () {
+gulp.task('jshint', function() {
   var stream = gulp.src(jsFiles)
-    .on('error', function (err) {
+    .on('error', function(err) {
       console.error('JSX ERROR in ' + err.fileName);
       console.error(err.message);
       this.end();
@@ -218,7 +229,7 @@ gulp.task('jshint', function () {
 /*******************************************************************************
     HTML REPLACE ZA RELEASE
 *******************************************************************************/
-gulp.task('htmlreplace:release', function () {
+gulp.task('htmlreplace:release', function() {
   gulp.src('./src/index.html')
     .pipe(htmlreplace({
       //'css': 'styles.min.css',
@@ -232,7 +243,7 @@ gulp.task('htmlreplace:release', function () {
     HTML REPLACE ZA DEV
 *******************************************************************************/
 
-gulp.task('htmlreplace:dev', function () {
+gulp.task('htmlreplace:dev', function() {
   gulp.src('./index.html')
     .pipe(htmlreplace({
       'analytics': 'scripts/app/analytics_debug.js',
@@ -251,12 +262,12 @@ gulp.task('htmlreplace:dev', function () {
 /*******************************************************************************
     BUILD TASK
 *******************************************************************************/
-gulp.task('build:rjs', function () {
+gulp.task('build:rjs', function() {
   return gulp.src('./src/scripts/app/*.js')
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(requirejsOptimize(function (file) {
+    .pipe(requirejsOptimize(function(file) {
       return {
         name: '../main',
         optimize: 'uglify2',
@@ -278,13 +289,15 @@ gulp.task('build:rjs', function () {
     }))
     .pipe(stripDebug())
     .pipe(gulp.dest('dist'))
-    .pipe($$.size({title: 'requirejs-main'}));
+    .pipe($$.size({
+      title: 'requirejs-main'
+    }));
 });
 
 /*******************************************************************************
     CLEAN SCRIPTS
 *******************************************************************************/
-gulp.task('clean:leftovers', [], function () {
+gulp.task('clean:leftovers', [], function() {
   console.log('Clean all files in build folder');
   gulp.src(['./src/libs/require*.*', './src/libs/underscore*.*', './src/scripts/app/vm', 'scripts/main.js'])
     .pipe(clean());
@@ -295,7 +308,7 @@ gulp.task('clean:leftovers', [], function () {
 *******************************************************************************/
 
 // Concatenate & Minify JS
-gulp.task('build:otherjs', function () {
+gulp.task('build:otherjs', function() {
   gulp.src('.src/scripts/libs/*.js')
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./dist'))
@@ -303,13 +316,15 @@ gulp.task('build:otherjs', function () {
     .pipe(uglify())
     .pipe(stripDebug())
     .pipe(gulp.dest('./dist'))
-    .pipe($$.size({title: 'scripts'}));
+    .pipe($$.size({
+      title: 'scripts'
+    }));
 });
 
 /*******************************************************************************
     COMPILE LESS TO CSS
 *******************************************************************************/
-gulp.task('less', function () {
+gulp.task('less', function() {
   return gulp.src('styles/main.less')
     .pipe(less())
     .pipe(gulp.dest('styles/main.css'));
@@ -319,7 +334,7 @@ gulp.task('less', function () {
     DELETE FILES FROM FOLDERS FOR MOBILE WEB
 *******************************************************************************/
 
-gulp.task('clean:web', function () {
+gulp.task('clean:web', function() {
   del([
     './src/_build',
     './src/scripts/app/config_*.js',
@@ -338,7 +353,7 @@ gulp.task('clean:web', function () {
     './src/*.proj',
     './src/*.iceproj*',
     '!tmp/unicorn.js'
-    ], function (err, paths) {
+  ], function(err, paths) {
     console.log('Deleted files/folders:\n', paths.join('\n'));
     if (err !== null) {
       console.log('Delete failed:', err);
@@ -350,7 +365,7 @@ gulp.task('clean:web', function () {
     DELETE FILES FROM FOLDERS FOR MOBILE APP
 *******************************************************************************/
 
-gulp.task('clean:mobile', function () {
+gulp.task('clean:mobile', function() {
   del([
     './src/_build',
     './src/scripts/app/config_*.js',
@@ -360,7 +375,7 @@ gulp.task('clean:mobile', function () {
     './src/*.proj',
     './src/*.iceproj*',
     '!tmp/unicorn.js'
-    ], function (err, paths) {
+  ], function(err, paths) {
     console.log('Deleted files/folders:\n', paths.join('\n'));
     if (err !== null) {
       console.log('Delete failed:', err);
@@ -373,13 +388,13 @@ gulp.task('clean:mobile', function () {
 *******************************************************************************/
 
 var filesToMove = [
-        './**/*.*'
-        //'./icons/**/*.*',
-        //'./src/page_action/**/*.*',
-        //'./manifest.json'
-    ];
+  './**/*.*'
+  //'./icons/**/*.*',
+  //'./src/page_action/**/*.*',
+  //'./manifest.json'
+];
 // TODO rewrite for GULP v4
-gulp.task('copyto:dist', ['clean:leftovers'], function () {
+gulp.task('copyto:dist', ['clean:leftovers'], function() {
   return gulp.src([
     './src/**/*.*'
   ], {
@@ -391,31 +406,31 @@ gulp.task('copyto:dist', ['clean:leftovers'], function () {
     DEPLOY TO SERVER
     https://github.com/mikeobrien/node-robocopy
 *******************************************************************************/
-gulp.task('deploy', function () {
+gulp.task('deploy', function() {
   return robocopy({
-      source: './dist',
-      destination: '//',
-      files: ['*.html', '*.htm', '*.js', '*.json', '*.png', '*.jpg', '*.jpeg', '*.gif', '*.css'],
-      copy: {
-        mirror: true //The mirror option allows you to synchronize your destination with your source folder, removing any deleted files.
-      },
-      file: {
-        excludeFiles: ['packages.config'],
-        excludeDirs: ['obj', '_build']
-      },
-      retry: { //The retry options allows you to retry the copy after so many seconds if it failed
-        count: 2,
-        wait: 3
-      },
-      logging: {
-        // Writes the status output to the console window, as well as to the log file. [/tee]
-        showAndLog: true | false
-      }
-    })
-    .done(function (stdout) {
+    source: './dist',
+    destination: '//',
+    files: ['*.html', '*.htm', '*.js', '*.json', '*.png', '*.jpg', '*.jpeg', '*.gif', '*.css'],
+    copy: {
+      mirror: true //The mirror option allows you to synchronize your destination with your source folder, removing any deleted files.
+    },
+    file: {
+      excludeFiles: ['packages.config'],
+      excludeDirs: ['obj', '_build']
+    },
+    retry: { //The retry options allows you to retry the copy after so many seconds if it failed
+      count: 2,
+      wait: 3
+    },
+    logging: {
+      // Writes the status output to the console window, as well as to the log file. [/tee]
+      showAndLog: true | false
+    }
+  })
+    .done(function(stdout) {
       console.log(stdout);
     })
-    .fail(function (error) {
+    .fail(function(error) {
       console.log(error.message);
     });
 });
@@ -424,7 +439,7 @@ gulp.task('deploy', function () {
     RUN KARMA UNIT TESTS WIP
 *******************************************************************************/
 // TODO make this work for cordova
-gulp.task('test', function () {
+gulp.task('test', function() {
   // Be sure to return the stream
   // NOTE: Using the fake './foobar' so as to run the files
   // listed in karma.conf.js INSTEAD of what was passed to
@@ -434,14 +449,14 @@ gulp.task('test', function () {
       configFile: 'karma.conf.js',
       action: 'run'
     }))
-    .on('error', function (err) {
+    .on('error', function(err) {
       // Make sure failed tests cause gulp to exit non-zero
       console.log(err);
       this.emit('end'); //instead of erroring the stream, end it
     });
 });
 
-gulp.task('autotest', function () {
+gulp.task('autotest', function() {
   return gulp.watch(['www/js/**/*.js', 'test/spec/*.js'], ['test']);
 });
 
@@ -449,7 +464,7 @@ gulp.task('autotest', function () {
     SEO -> SEND A REQUEST TO GOOGLE AND BING & INFORM THEM TO RE-INDEX THE SITE
 *******************************************************************************/
 
-gulp.task('seo', function (cb) {
+gulp.task('seo', function(cb) {
   request('http://www.google.com/webmasters/tools/ping?sitemap={URL TO YOUR SITEMAP.XML}');
   request('http://www.bing.com/webmaster/ping.aspx?siteMap={URL TO YOUR SITEMAP.XML}');
   cb();
@@ -458,8 +473,8 @@ gulp.task('seo', function (cb) {
 /*******************************************************************************
     TEST SITE AVAILABILITY
 *******************************************************************************/
-gulp.task('test:sitestatus', function (error) {
-  request('yoursite.com', function (error, response, body) {
+gulp.task('test:sitestatus', function(error) {
+  request('yoursite.com', function(error, response, body) {
     if (!error && response.statusCode === 200) {
       console.log(body); // Show the HTML for the page.
     }
@@ -470,7 +485,7 @@ gulp.task('test:sitestatus', function (error) {
 /*******************************************************************************
     RUN PAGESPEED INSIGHTS
 *******************************************************************************/
-gulp.task('pagespeed:mobile', function (cb) {
+gulp.task('pagespeed:mobile', function(cb) {
   // Update the below URL to the public URL of your site
   pagespeed.output('example.com', {
     strategy: 'mobile',
@@ -480,7 +495,7 @@ gulp.task('pagespeed:mobile', function (cb) {
   }, cb);
 });
 
-gulp.task('pagespeed:desktop', function (cb) {
+gulp.task('pagespeed:desktop', function(cb) {
   // Update the below URL to the public URL of your site
   pagespeed.output('example.com', {
     strategy: 'desktop',
@@ -495,36 +510,36 @@ gulp.task('pagespeed:desktop', function (cb) {
     DEFAULT TASKS
 *******************************************************************************/
 
-gulp.task('default', ['install:all'], function () {
+gulp.task('default', ['install:all'], function() {
   // place code for your default task here
 });
 
 // TODO rewrite for GULP v4
 gulp.task('dev:web', [
- 'plato',
- 'jshint',
- 'htmlreplace:dev'
+  'plato',
+  'jshint',
+  'htmlreplace:dev'
 ]);
 
 // TODO rewrite for GULP v4
 gulp.task('release:dev', [
- 'copyto:src',
- 'jshint',
- 'htmlreplace:release',
- 'clean:web',
- 'build:rjs',
- 'copyto:dist'
+  'copyto:src',
+  'jshint',
+  'htmlreplace:release',
+  'clean:web',
+  'build:rjs',
+  'copyto:dist'
 ]);
 
 // TODO rewrite for GULP v4
 gulp.task('release:mobile', [
- 'copyto:src',
- 'jshint',
- 'htmlreplace:release',
- 'clean:mobile',
- 'build:rjs',
- 'copyto:dist'
-], function () {
+  'copyto:src',
+  'jshint',
+  'htmlreplace:release',
+  'clean:mobile',
+  'build:rjs',
+  'copyto:dist'
+], function() {
   log('Building everything');
 
   var msg = {
