@@ -17,7 +17,8 @@
     "owl-carousel2": "latest",
     "moment": "~2.8.4",
     "matchHeight": "latest",
-    "magnific-popup": "latest"
+    "magnific-popup": "latest",
+    "modernizr": "latest"
   },
   "dependencies": {
     "jquery": "~2.1.1",
