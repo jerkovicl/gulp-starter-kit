@@ -27,6 +27,7 @@
     "moment": "~2.8.4",
     "matchHeight": "latest",
     "magnific-popup": "latest",
+    "modernizr": "latest",
     "kendo-ui-core": "latest"
   }
 }
