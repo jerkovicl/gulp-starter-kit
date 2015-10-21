@@ -1,5 +1,6 @@
 {
   "name": "Starter kit - bower.json",
+  "private": true,
   "version": "1.0.0",
   "description": "bower.json example file for Starter kit",
   "authors": [
@@ -29,5 +30,17 @@
     "magnific-popup": "latest",
     "modernizr": "latest",
     "kendo-ui-core": "latest"
+  },
+  "exportsOverride": {
+
+        "bootstrap": {
+            "js": "dist/js/*.*",
+            "css": "dist/css/*.*",
+            "fonts": "dist/fonts/*.*"
+        },
+        "jquery": {
+            "js": "dist/jquery.{js,min.js,min.map}"
+
+        }
   }
 }
