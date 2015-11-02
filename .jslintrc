@@ -4,7 +4,7 @@
   "globals": {
     "gapi": true,
     "define": true,
-    "angular": false
+    "angular": true
   },
   "browser": true,
   "esnext": true,
