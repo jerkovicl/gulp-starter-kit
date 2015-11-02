@@ -16,6 +16,7 @@ Starter kit for Javascript build automation using Gulp & Bower
 	If you choose this option, you'll be able to use the `git` command from the Windows Command Prompt AS WELL AS all the extra unix tools such as `ls`, `pwd`, and `ssh-keygen` from the Windows Command Prompt.  
 Yes, this does replace some Windows-based tools, such as `find` with the unix version, but unless you're creating python scripts or batch scripts to manage Windows in some fashion, you can get away with this option with little to no issue.
 	- download [here](https://github-windows.s3.amazonaws.com/GitHubSetup.exe)
+	- some tips if you are usign Github Desktop [here](http://haacked.com/archive/2015/10/29/git-shell/)
 
 ## Quick Start
 Clone this repo and install Gulp & Bower using these commands
