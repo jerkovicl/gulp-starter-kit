@@ -5,7 +5,7 @@
   "globals": {                 // additional predefined global variables
     "gapi": true,
     "define": true,
-    "angular": false
+    "angular": true
   },
   "browser": true,             // Web Browser (window, document, etc)
   "esnext": true,              // Allow ES.next (ES6) syntax (ex: `const`)
