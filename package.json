@@ -20,6 +20,7 @@
         "gulp-jshint": "1.11.2",
         "gulp-karma": "0.0.4",
         "gulp-less": "^3.0.3",
+        "gulp-markdown": "latest",
         "gulp-load-plugins": "1.0.0-rc.1",
         "gulp-plumber": "1.0.1",
         "gulp-rename": "1.2.2",
