@@ -19,6 +19,7 @@ var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var karma = require('gulp-karma');
 var less = require('gulp-less');
+var markdown = require('gulp-markdown');
 var notifier = require('node-notifier');
 var pagespeed = require('psi');
 var path = require('path');
@@ -117,6 +118,18 @@ gulp.task('todo', function() {
       fileName: 'todo.json'
     }))
     .pipe(gulp.dest('./')); //output todo.json as json
+});
+
+/*******************************************************************************
+   COMPILE MARKDOWN TO HTML
+*******************************************************************************/
+
+gulp.task('markdown', function() {
+    return gulp.src('**/*.md')
+        .pipe(markdown())
+        .pipe(gulp.dest(function(f) {
+            return f.base;
+        }));
 });
 
 /*******************************************************************************
@@ -512,6 +525,7 @@ gulp.task('pagespeed:desktop', function(cb) {
 
 gulp.task('default', ['install:all'], function() {
   // place code for your default task here
+  gulp.watch('**/*.md', ['markdown']);
 });
 
 // TODO rewrite for GULP v4
