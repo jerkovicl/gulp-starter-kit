@@ -101,7 +101,8 @@ report
 ######################
 .JustCode
 
-# Visual Studo 2015 cache/options directory #
+# Visual Studo 2015 / VS Code cache/options directory #
 ######################
 .vs/
 .settings/
+.vscode
