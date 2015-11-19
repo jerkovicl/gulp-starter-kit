@@ -6,5 +6,5 @@
 	"tag-pair": true,
 	"id-unique": true,
 	"head-script-disabled": false,
-	"doctype-first": false
+	"doctype-first": true
 }
