@@ -91,6 +91,7 @@ report
 # *.sdf
 *.mdf
 *.ldf
+*.pdb
 
 # Node.js Tools for Visual Studio #
 ######################
