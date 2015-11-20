@@ -337,7 +337,7 @@ gulp.task('build:otherjs', function() {
 /*******************************************************************************
     COMPILE LESS TO CSS
 *******************************************************************************/
-// TODO Replace LESS with Sass / Scss
+// TODO Replace LESS with Sass / SCSS
 gulp.task('less', function() {
   return gulp.src('styles/main.less')
     .pipe(less())
