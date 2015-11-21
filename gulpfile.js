@@ -20,6 +20,7 @@ var jshint = require('gulp-jshint');
 var karma = require('gulp-karma');
 var less = require('gulp-less');
 var markdown = require('gulp-markdown');
+var markdownpdf = require('gulp-markdown-pdf');
 var notifier = require('node-notifier');
 var pagespeed = require('psi');
 var path = require('path');
@@ -124,12 +125,22 @@ gulp.task('todo', function() {
    COMPILE MARKDOWN TO HTML
 *******************************************************************************/
 
-gulp.task('markdown', function() {
+gulp.task('markdown-html', function() {
     return gulp.src('**/*.md')
         .pipe(markdown())
         .pipe(gulp.dest(function(f) {
             return f.base;
         }));
+});
+
+/*******************************************************************************
+   CONVERT MARKDOWN TO PDF
+*******************************************************************************/
+
+gulp.task('markdown-pdf', function () {
+    return gulp.src('**/*.md')
+        .pipe(markdownpdf())
+        .pipe(gulp.dest('dist/docs'));
 });
 
 /*******************************************************************************
@@ -526,7 +537,7 @@ gulp.task('pagespeed:desktop', function(cb) {
 
 gulp.task('default', ['install:all'], function() {
   // place code for your default task here
-  gulp.watch('**/*.md', ['markdown']);
+  gulp.watch('**/*.md', ['markdown-html']);
 });
 
 // TODO rewrite for GULP v4
