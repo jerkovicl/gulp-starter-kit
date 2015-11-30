@@ -8,6 +8,7 @@ Starter kit for Javascript build automation using Gulp & Bower
 
 - Install Node (64-bit version)
 	- download [here](https://nodejs.org/download/)
+	- [Tutorial - Use latest NodeJS version in VS2015](http://ryanhayes.net/synchronize-node-js-install-version-with-visual-studio-2015/)
     - Read [here](http://blog.teamtreehouse.com/install-node-js-npm-windows) for some [tips on Windows](https://github.com/npm/npm/wiki/Troubleshooting#upgrading-on-windows/)
 - Install Git & GitHub for Windows
 	- download [here](http://git-scm.com/download/win)
