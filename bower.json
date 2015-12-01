@@ -19,7 +19,8 @@
     "moment": "~2.8.4",
     "matchHeight": "latest",
     "magnific-popup": "latest",
-    "modernizr": "latest"
+    "modernizr": "latest",
+    "select2": "latest"
   },
   "dependencies": {
     "jquery": "~2.1.1",
@@ -41,6 +42,9 @@
         "jquery": {
             "js": "dist/jquery.{js,min.js,min.map}"
 
+        },
+        "select2": {
+          "js":"dist/js/*.*"
         }
   }
 }
