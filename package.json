@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "gulpfile-starter-kit",
   "version": "1.0.0",
   "description": "Gulpfile za Starter kit",
@@ -60,4 +61,70 @@
     "precommit": "gulp lint",
     "prepush": "gulp todo"
   }
+=======
+    "name": "gulpfile-starter-kit",
+    "version": "1.0.0",
+    "description": "Gulpfile za Starter kit",
+    "author": "Luka Jerkovic",
+    "license": "MIT",
+    "main": "gulpfile.js",
+    "devDependencies": {
+        "appbuilder": "2.11.3",
+        "bower-installer": "^1.2.0",
+        "del": "2.0.2",
+        "eslint-config-google": "^0.3.0",
+        "glob": "5.0.14",
+        "gulp": "3.9.0",
+        "gulp-clean": "^0.3.1",
+        "gulp-concat": "2.6.0",
+        "gulp-html-replace": "1.5.3",
+        "gulp-install": "0.5.0",
+        "gulp-jasmine": "2.1.0",
+        "gulp-jscs": "2.0.0",
+        "gulp-jshint": "1.11.2",
+        "gulp-karma": "0.0.4",
+        "gulp-less": "^3.0.3",
+        "gulp-load-plugins": "1.0.0-rc.1",
+        "gulp-markdown": "latest",
+        "gulp-markdown-pdf":"latest",
+        "gulp-plumber": "1.0.1",
+        "gulp-rename": "1.2.2",
+        "gulp-requirejs-optimize": "0.3.0",
+        "gulp-run": "^1.0.0",
+        "gulp-sass": "^2.1.0",
+        "gulp-strip-debug": "1.0.2",
+        "gulp-todo": "3.3.0",
+        "gulp-uglify": "1.4.1",
+        "gulp-util": "3.0.6",
+        "husky": "0.10.1",
+        "jasmine-core": "2.3.4",
+        "jshint-stylish": "2.0.1",
+        "karma": "0.13.9",
+        "karma-jasmine": "0.3.6",
+        "karma-phantomjs-launcher": "0.2.1",
+        "karma-spec-reporter": "0.0.20",
+        "lodash": "3.10.1",
+        "node-notifier": "4.2.3",
+        "path": "0.12.7",
+        "pjup": "1.0.3",
+        "plato": "1.5.0",
+        "psi": "1.0.6",
+        "request": "2.62.0",
+        "robocopy": "0.1.15"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jerkovicl/gulp-starter-kit"
+    },
+    "scripts": {
+        "init": "npm init",
+        "install": "bower install",
+        "start": "",
+        "precommit": "gulp lint",
+        "prepush": "gulp todo"
+    },
+    "eslintConfig": {
+        "extends": "google"
+    }
+>>>>>>> c917c1058afd0b76d92c0ccac891d7ba146ef222
 }
