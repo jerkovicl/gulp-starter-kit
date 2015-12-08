@@ -9,6 +9,7 @@
         "appbuilder": "2.11.3",
         "bower-installer": "^1.2.0",
         "del": "2.0.2",
+        "eslint-config-google": "^0.3.0",
         "glob": "5.0.14",
         "gulp": "3.9.0",
         "gulp-clean": "^0.3.1",
@@ -58,5 +59,8 @@
         "start": "",
         "precommit": "gulp lint",
         "prepush": "gulp todo"
+    },
+    "eslintConfig": {
+        "extends": "google"
     }
 }
