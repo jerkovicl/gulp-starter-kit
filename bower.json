@@ -11,7 +11,11 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components"
+    "bower_components",
+    "test",
+    "tests",
+    "package.json",
+    "src"
   ],
   "devDependencies": {
     "bootstrap": "~3.3.1",
