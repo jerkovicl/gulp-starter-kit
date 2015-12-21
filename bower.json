@@ -35,16 +35,21 @@
   "exportsOverride": {
 
         "bootstrap": {
-            "js": "dist/js/*.*",
-            "css": "dist/css/*.*",
-            "fonts": "dist/fonts/*.*"
+          "main": [
+            "./dist/js/*.*",
+            "./dist/css/*.*",
+            "./dist/fonts/*.*"
+          ]
         },
         "jquery": {
-            "js": "dist/jquery.{js,min.js,min.map}"
-
+          "main": [
+            "./dist/jquery.{js,min.js,min.map}"
+          ]
         },
         "select2": {
-          "js":"dist/js/*.*"
+          "main": [
+          "./dist/js/*.*"
+          ]
         }
   }
 }
