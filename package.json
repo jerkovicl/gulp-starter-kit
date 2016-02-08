@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "gulpfile.js",
   "devDependencies": {
-    "appbuilder": "2.11.3",
+    "appbuilder": "latest",
     "bower-installer": "^1.2.0",
     "del": "2.0.2",
     "eslint-config-google": "^0.3.0",
