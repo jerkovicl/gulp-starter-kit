@@ -34,6 +34,7 @@ var run = require('gulp-run');
 var stripDebug = require('gulp-strip-debug');
 var todo = require('gulp-todo');
 var uglify = require('gulp-uglify');
+var webstandards = require('gulp-webstandards');
 
 module.exports = gulp;
 
@@ -82,6 +83,14 @@ gulp.task('install:all', function() {
 // FIXME gulp-run deprecated find alternative
 gulp.task('update-pjson', function() {
   run('pjup').exec();
+});
+
+/*******************************************************************************
+    CHECK YOUR SITE WITH MODERN WEB STANDARDS
+*******************************************************************************/
+gulp.task('webstandards', function () {
+    return gulp.src('YOUR_COMPILED_FILES/**/*')
+        .pipe(webstandards());
 });
 
 /*******************************************************************************
