@@ -1,21 +1,34 @@
 //https://github.com/beautify-web/js-beautify#options
-
 {
   "indent_size": 2,
-  "brace_style": "collapse",
-  "break_chained_methods": false,
-  "e4x": false,
-  "eval_code": false,
+  "indent_char": " ",
+  "eol": "\n",
   "indent_level": 0,
-  "indent_with_tabs": true,
-  "jslint_happy": true,
+  "indent_with_tabs": false,
+  "preserve_newlines": true,
+  "max_preserve_newlines": 10,
+  "jslint_happy": false,
+  "space_after_anon_function": false,
+  "brace_style": "collapse",
   "keep_array_indentation": false,
   "keep_function_indentation": false,
-  "max_preserve_newlines": 3,
-  "preserve_newlines": true,
   "space_before_conditional": true,
-  "space_in_paren": false,
+  "break_chained_methods": false,
+  "eval_code": false,
   "unescape_strings": false,
   "wrap_line_length": 0,
-  "allowed_file_extensions": ["js", "json", "jshintrc", "jsbeautifyrc"]
+  "wrap_attributes": "auto",
+  "wrap_attributes_indent_size": 4,
+  "end_with_newline": false,
+  "css": {
+    "allowed_file_extensions": [
+      "css",
+      "scss",
+      "sass",
+      "less"
+    ],
+    "indent_size": 2, // Indentation size
+    "newline_between_rules": true, // Add a new line after every css rule
+    "selector_separator_newline": true // Separate selectors with newline or not (e.g. "a,\nbr" or "a, br")
+  }
 }
